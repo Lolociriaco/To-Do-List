@@ -1,0 +1,46 @@
+h1, h2{
+    display: flexbox;
+    text-align: center;
+    text-decoration: underline rgb(246, 145, 12);
+}
+
+.contenedor{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    list-style-type: none;
+    padding: 0;
+}
+
+.contenedor li{
+    margin: 20px;
+    background: none; /* Quita el fondo */
+    padding: 5; /* Quita el relleno */
+    cursor: pointer;
+    width: 100px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: antiquewhite;
+}
+
+.contenedor li:hover{
+    background-color: rgb(240, 221, 197);
+    
+}
+
+.contenedor li.completed {
+    text-decoration: line-through;
+    color: gray; /* Opcional: cambiar el color de texto de tareas completadas */
+    background-color: gainsboro;
+}
+
+.contenedorPlaceholder{
+    display: flex;
+    justify-content: center;
+}
+
+button{
+    display: block;
+}
