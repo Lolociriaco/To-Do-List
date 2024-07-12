@@ -1,8 +1,18 @@
-h1, h2{
-    display: flexbox;
-    text-align: center;
-    text-decoration: underline rgb(246, 145, 12);
+h1{
+    display: flex;
+    justify-content: center;
+    text-decoration: unset rgb(246, 145, 12);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-shadow: 4px 4px 7px rgba(0,0,0,0.21);
+    font-size: 50px;
+    animation: blink 1s;
 }
+
+@keyframes blink {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
 
 .contenedor{
     display: flex;
@@ -12,35 +22,89 @@ h1, h2{
     padding: 0;
 }
 
-.contenedor li{
-    margin: 20px;
+.taskText{
+    margin: 10px;
     background: none; /* Quita el fondo */
-    padding: 5; /* Quita el relleno */
+    padding-left: 20px; /* Quita el relleno */
     cursor: pointer;
-    width: 100px;
+    width: 70vw;
     height: 50px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    background-color: antiquewhite;
+    justify-content: space-between;
+    background-color:  #e3eff8;
+    border-radius: 10px;
+    box-shadow: 0px 18px 27px -11px rgba(0,0,0,0.21);
+    -webkit-box-shadow: 0px 18px 27px -11px rgba(0,0,0,0.21);
+    -moz-box-shadow: 0px 18px 27px -11px rgba(0,0,0,0.21);
+    transition: 50ms;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
 }
 
-.contenedor li:hover{
-    background-color: rgb(240, 221, 197);
+.taskText:hover{
+    background-color: #cee4f4;
     
 }
 
-.contenedor li.completed {
-    text-decoration: line-through;
+.taskText.completed:not(.deleteButton){
     color: gray; /* Opcional: cambiar el color de texto de tareas completadas */
     background-color: gainsboro;
 }
 
-.contenedorPlaceholder{
+body{
     display: flex;
+    align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
-button{
-    display: block;
+.contenedorPlaceholder{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50vw;
+    height: 50px;
+    background-color: rgb(97, 181, 209);
+    border-radius: 10px;
+    padding: 0 1vw;
+    box-shadow: 0px 18px 27px -11px rgba(0,0,0,0.14);
+-webkit-box-shadow: 0px 18px 27px -11px rgba(0,0,0,0.14);
+-moz-box-shadow: 0px 18px 27px -11px rgba(0,0,0,0.14);
+}
+
+#userInput{
+    width: 40vw;
+    height: 30px;
+    border-radius: 5px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
+}
+
+#enter{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
+    background-color: #edf6fd;
+    width: 8vw;
+    height: 30px;
+    border-radius: 5px;
+}
+
+/* Estilo para el botón de borrar */
+.deleteButton {
+
+    background-color: #f42222;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-right: 20px;
+        border-radius: 5px;
+    box-shadow: 0px 3px 21px -14px rgba(0,0,0,1);
+-webkit-box-shadow: 0px 3px 21px -14px rgba(0,0,0,1);
+-moz-box-shadow: 0px 3px 21px -14px rgba(0,0,0,1);
+}
+
+.deleteButton:hover {
+    background-color: #b62121;
 }

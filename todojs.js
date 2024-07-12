@@ -6,6 +6,10 @@ function taskDone(event){
     event.target.classList.toggle("completed");
 }
 
+function deleteTask(event){
+    event.target.parentElement.remove();
+}
+
 function inputValue()
 {
     return input.value.length;
@@ -15,11 +19,16 @@ function newListElement()
 {
     var li = document.createElement("li");
     var ul = document.querySelector("ul");
-    li.appendChild(document.createTextNode(input.value));
+    li.append(document.createTextNode(input.value));
+    li.classList.add("taskText");
     li.addEventListener("click", taskDone);
+
     botonEliminacion = document.createElement("button");
-    botonEliminacion.value = "remove";
-    botonEliminacion.classList.add("completed")
+    botonEliminacion.append(document.createTextNode("BORRAR"));
+    botonEliminacion.classList.add("deleteButton");
+    botonEliminacion.addEventListener("click", deleteTask);
+
+    li.appendChild(botonEliminacion);
     ul.appendChild(li);
     input.value = "";
 }
