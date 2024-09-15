@@ -2,8 +2,8 @@ h1{
     display: flex;
     justify-content: center;
     text-decoration: unset rgb(246, 145, 12);
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    text-shadow: 4px 4px 7px rgba(0,0,0,0.21);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, Georgia, Times, 'Times New Roman', serif;
+    text-shadow: 4px 4px 7px rgba(0,0,0,0.10);
     font-size: 50px;
     animation: blink 1s;
 }
@@ -22,7 +22,7 @@ h1{
     padding: 0;
 }
 
-.taskText{
+.taskText, .error{
     margin: 10px;
     background: none; /* Quita el fondo */
     padding-left: 20px; /* Quita el relleno */
@@ -44,8 +44,14 @@ h1{
 
 .taskText:hover{
     background-color: #cee4f4;
-    
 }
+
+.error{
+    background-color: #b62121;
+    color: white;
+    justify-content: center;
+}
+
 
 .taskText.completed:not(.deleteButton){
     color: gray; /* Opcional: cambiar el color de texto de tareas completadas */
