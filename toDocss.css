@@ -27,17 +27,25 @@ h1{
     padding: 0;
 }
 
-.taskText, .error{
+.taskText, .error {
     margin: 10px;
     background: none; /* Quita el fondo */
-    padding-left: 20px; /* Quita el relleno */
+    padding: 8px 10px; /* padding para todos los lados */
     cursor: pointer;
     width: 70vw;
-    height: 50px;
+    box-sizing: border-box; /* Incluye padding y border en el tamaño total */
+    flex-wrap: wrap;
+    flex-shrink: 1; /* El contenedor intentará encoger */
+    flex-grow: 1;   /* Los elementos crecerán dentro del contenedor si hay espacio */
+
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color:  rgb(238, 219, 72);
+    flex-wrap: wrap; /* Permite que el contenido largo se ajuste en una nueva línea */
+    word-break: break-all; /* Fuerza el quiebre en palabras largas */
+    overflow-wrap: break-word; /* También permite el quiebre en palabras largas */
+
+    background-color: rgb(238, 219, 72);
     border-radius: 10px;
     box-shadow: 0px 18px 27px -11px rgba(0,0,0,0.21);
     -webkit-box-shadow: 0px 18px 27px -11px rgba(0,0,0,0.21);
@@ -45,6 +53,7 @@ h1{
     transition: 50ms;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 20px;
+    max-width: 100%;
 }
 
 .taskText:hover{
@@ -128,6 +137,11 @@ body{
     font-size: 18px;
 }
 
+li{
+    max-width: 100%;
+    text-overflow: ellipsis;
+}
+
 #enter{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 18px;
@@ -141,17 +155,17 @@ body{
 
 /* Estilo para el botón de borrar */
 .deleteButton {
-
     background-color: #f42222;
     color: white;
     border: none;
     padding: 5px 10px;
     cursor: pointer;
-    margin-right: 20px;
+    margin: 5px 15px 5px auto;
         border-radius: 5px;
     box-shadow: 0px 3px 21px -14px rgba(0,0,0,1);
 -webkit-box-shadow: 0px 3px 21px -14px rgba(0,0,0,1);
 -moz-box-shadow: 0px 3px 21px -14px rgba(0,0,0,1);
+
 }
 
 .deleteButton:hover {
