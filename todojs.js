@@ -3,19 +3,52 @@
 var boton = document.getElementById("enter");
 var input = document.getElementById("userInput");
 var lista = document.querySelector("ul");
+var darkModeButton = document.getElementById("button");
+var sunButton = document.querySelector('.sun-button');
+var moonButton = document.querySelector('.moon-button');
+var body = document.body;
 let allTasks = [];
+
+darkModeButton.classList.add('button');
+
+if(localStorage.getItem("darkMode") === "enabled")
+{
+    body.classList.add("dark-mode");
+    sunButton.classList.add("buttonOn");
+    darkModeButton.classList.add("day");
+    
+}else
+{
+    moonButton.classList.add("buttonOn");
+}
 
 
 //EVENT LISTENER
+
+darkModeButton.addEventListener("click", () => {
+    body.classList.toggle("dark-mode");
+    darkModeButton.classList.toggle("day");
+
+
+    if (body.classList.contains("dark-mode")) 
+    {
+        localStorage.setItem("darkMode", "enabled");
+        sunButton.classList.add("buttonOn");
+        moonButton.classList.remove("buttonOn");
+    }
+     else 
+    {
+        localStorage.setItem("darkMode", "disabled"); 
+        sunButton.classList.remove("buttonOn");
+        moonButton.classList.add("buttonOn");
+    }
+});
 
 
 input.addEventListener("keydown", addAfterKeypress);
 
 boton.addEventListener("click", addTask);
 
-document.querySelectorAll(".contenedor li").forEach(element => {
-    element.addEventListener("click", taskDone);
-});
 
 document.addEventListener('DOMContentLoaded', () => {
     allTasks = JSON.parse( localStorage.getItem('tasks')) || [];
@@ -29,8 +62,12 @@ document.addEventListener('DOMContentLoaded', () => {
 //FUNCIONES
 
 
-function taskDone(event){
-    event.target.classList.toggle("completed");
+function taskDone(li,task){
+    li.classList.toggle("completed");
+
+    task.complete = !task.complete;
+
+    sincronizeStorage();    
 }
 
 function deleteTask(id){
@@ -49,7 +86,13 @@ function newListElement(task)
     li.textContent = task.task;
     li.classList.add("taskText");
 
-    li.addEventListener("click", taskDone);
+    if(task.complete){
+        li.classList.add('completed');
+    }
+
+    li.onclick = () => {
+        taskDone(li, task);
+    }
 
     
     var botonEliminacion = document.createElement("button");
@@ -69,7 +112,8 @@ function addToLocalStorage()
 {
     const taskObj = {
         id: Date.now(),
-        task: input.value
+        task: input.value,
+        complete: false
     }
 
     allTasks = [...allTasks, taskObj];

@@ -14,6 +14,11 @@ h1{
 }
 
 
+.dark-mode{
+    background-color: rgb(73, 73, 73);
+    color: white;
+}
+
 .contenedor{
     display: flex;
     align-items: center;
@@ -32,7 +37,7 @@ h1{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color:  #e3eff8;
+    background-color:  rgb(238, 219, 72);
     border-radius: 10px;
     box-shadow: 0px 18px 27px -11px rgba(0,0,0,0.21);
     -webkit-box-shadow: 0px 18px 27px -11px rgba(0,0,0,0.21);
@@ -43,7 +48,7 @@ h1{
 }
 
 .taskText:hover{
-    background-color: #cee4f4;
+    background-color: rgb(220, 202, 65);
 }
 
 .error{
@@ -63,7 +68,41 @@ body{
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    transition: 0.5s;
 }
+
+.button{
+    margin: 20px 20px 0 auto;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(73, 73, 73);
+    color: white;
+}
+
+.day{
+    background-color: white;
+    color: black;
+}
+
+.sun-button{
+    color: rgb(0, 0, 0);
+    display: none;
+}
+
+.moon-button{
+    color: rgb(255, 255, 255);
+    display: none;
+}
+
+.buttonOn{
+    display: block;
+}
+
 
 .contenedorPlaceholder{
     display: flex;
@@ -71,18 +110,20 @@ body{
     justify-content: space-between;
     width: 50vw;
     height: 50px;
-    background-color: rgb(97, 181, 209);
-    border-radius: 10px;
+    background-color: rgb(224, 202, 33);
+    border-radius: 30px;
     padding: 0 1vw;
     box-shadow: 0px 18px 27px -11px rgba(0,0,0,0.14);
--webkit-box-shadow: 0px 18px 27px -11px rgba(0,0,0,0.14);
--moz-box-shadow: 0px 18px 27px -11px rgba(0,0,0,0.14);
+    -webkit-box-shadow: 0px 18px 27px -11px rgba(0,0,0,0.14);
+    -moz-box-shadow: 0px 18px 27px -11px rgba(0,0,0,0.14);
 }
 
 #userInput{
     width: 40vw;
+    padding-left: 8px;
     height: 30px;
-    border-radius: 5px;
+    border-radius: 30px;
+    border: none;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 18px;
 }
@@ -90,10 +131,12 @@ body{
 #enter{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 18px;
-    background-color: #edf6fd;
+    background-color: rgb(255, 255, 255);
     width: 8vw;
-    height: 30px;
-    border-radius: 5px;
+    height: 33px;
+    text-decoration: none;
+    border: none;
+    border-radius: 30px;
 }
 
 /* Estilo para el botón de borrar */
