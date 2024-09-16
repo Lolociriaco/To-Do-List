@@ -101,15 +101,19 @@ body{
 .sun-button{
     color: rgb(0, 0, 0);
     display: none;
+    justify-content: center;
+    align-items: center;
 }
 
 .moon-button{
     color: rgb(255, 255, 255);
     display: none;
+    justify-content: center;
+    align-items: center;
 }
 
 .buttonOn{
-    display: block;
+    display: flex;
 }
 
 
@@ -170,4 +174,26 @@ li{
 
 .deleteButton:hover {
     background-color: #b62121;
+}
+
+
+@media screen and (max-width: 900px) {
+    /* Estilos para pantallas más pequeñas de 768px (tabletas, móviles) */
+    .taskText {
+      width: 90vw;  /* Cambia el ancho a 100% en pantallas pequeñas */
+    }
+
+    .contenedorPlaceholder{
+        width: 83vw;
+    }
+
+    #enter{
+        width: 15vw;
+        margin-right: 5px;
+    }
+
+    #userInput{
+        width: 60vw;
+        margin-left: 5px;
+    }
 }
